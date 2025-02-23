@@ -1,0 +1,22 @@
+.toast{
+    position: fixed;
+    top:0;
+    right:50%;
+    /* left:50%;/ */
+    display: flex;
+    align-items: center;
+    width:300px;
+    height: 40px;
+    background-color: green;
+    border-radius: 3px;
+ animation: rd 2s forwards ease-out ;
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+
+@keyframes rd {
+
+    0%{opacity: 0.1;};
+    30%{opacity: .5;}
+    100%{opacity: 1;}
+    
+}
