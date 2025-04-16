@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
 const AutoComplete = () => {
-    const [data,setData]=useState([{id:1,name:'rd',item:[{vegetable:'cabage',dish:'Veg'},{vegetable:'chicken',dish:'NoVeg'}]},{id:1,name:'rd',item:[{vegetable:'cabage',dish:'Veg'},{vegetable:'chicken',dish:'NoVeg'}]}]);
+    const [data,setData]=useState([]);
     const [value,setValue]=useState('')
     const [cache,setCache]=useState({})
+
     const fetchData=async()=>{
         if(cache[value]){
             setData(cache[value])
-            console.log('from cache',value)
             return
         }
 
@@ -15,8 +15,7 @@ const AutoComplete = () => {
             const resp=await fetch(`https://dummyjson.com/recipes/search?q=${value}`);
             const res=await resp.json();
             setData(res.recipes)
-            setCache(prev=>({...prev,[value]:res.recipes}))
-            console.log('from api',value,cache)
+            setCache(prev=>({...prev,value:res.recipes}))
          } catch (error) {
             console.log(error)
          }
@@ -24,7 +23,7 @@ const AutoComplete = () => {
 
     useEffect(()=>{
         let interval=setTimeout(()=>{
-            // fetchData();
+            fetchData();
         },300)
 
         return ()=>{
@@ -32,34 +31,20 @@ const AutoComplete = () => {
         }
     },[value])
 
-    // console.log(value)
+    console.log(value)
     const handleOnChange=(e)=>{
-        // setValue(e.target.value)
-        setData((prev)=>{
-console.log(prev,'val')
-          let res=  prev.map((it)=>(
-                {...it,item:[...it.item.map((value)=>(
-                    {
-                          ...value,
-                          updateBy:e.target.value
-                    }
-                ))]}
-            ))
-
-            return res;
-        })
+        setValue(e.target.value)
     }
 
-    console.log(data,'setDtaa')
     return (
-        // <div style={{margin:'0 auto',width:'300px'}} >
-             <input style={{height:'50px',margin:'0 auto',width:'100%'}} type='text' onChange={handleOnChange} placeholder='Enter Text'/>
-        //     <div style={{maxHeight:'200px',margin:'0 auto',overflowY:'scroll'}}>
-        //     {data.length>0&&data.map((item,id)=>(
-        //         <div key={item.id}>{item.name}</div>
-        //     ))}
-        //     </div>
-        // </div>
+        <div style={{margin:'0 auto',width:'300px'}} >
+            <input style={{height:'50px',margin:'0 auto',width:'100%'}} type='text' onChange={handleOnChange} placeholder='Enter Text'/>
+            <div style={{maxHeight:'200px',margin:'0 auto',overflowY:'scroll'}}>
+            {data.length>0&&data.map((item,id)=>(
+                <div key={item.id}>{item.name}</div>
+            ))}
+            </div>
+        </div>
     );
 };
 

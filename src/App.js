@@ -1,11 +1,13 @@
 // import logo from './logo.svg';
 import { createContext } from 'react';
+// import provider from 'react-redux'
+import { Provider } from 'react-redux';
 import './App.css';
 import Accordion from './Accordion';
 import IncrementDecrement from './IncrementDecrement';
 import StopWatch from './StopWatch';
 import Debouncing from './Debouncing';
-// import InfiniteScroll from './InfiniteScroll';
+import InfiniteScroll from './InfiniteScroll';
 import TodoList1 from './TodoList/TodoList1'
 import TodoList from './TodoList/TodoList'
 import NavBar from './NavBar/NavBar';
@@ -32,23 +34,34 @@ import AutoSaveForm from './Revision/AutoSaveForm';
 import Counter from './Practice/Counter';
 import Tab from './Practice/Tab';
 import Accordian from './Practice/Accordian';
-// import TicTocToe from './TicTocToe';
+import TicTocToe from './TicTocToe';
 import Them, { ThemeProviderValue } from './Practice/Them';
 import ApiPractice from './Practice/ApiPractice';
 import MultiSelcet from './Practice/MultiSelcet';
 import Carousal from './Practice/Carousal';
-import InfiniteScroll from './Practice/InfiniteScroll';
+// import InfiniteScroll from './Practice/InfiniteScroll';
 import FormValidation from './Practice/FormValidation';
 import JiraBoard from './Practice/JiraBoard';
 import NestedObject from './NestedObject/NestedObject';
 import AgeObjectManuplation from './NestedObject/AgeObjectManuplation';
-import TicTocToe from './Practice/TicTocToe';
+// import TicTocToe from './Practice/TicTocToe';
 import SnackLadder from './Practice/SnackLadder';
-import NestedCheckBox from './NestedCheckBox';
+// import NestedCheckBox from './NestedCheckBox';
 import Paginations from './Paginations';
 import AutoComplete from './AutoComplete';
 import MultiSelect from './MultiSelect';
-import FileExplorer from './FileExplorer';
+// import FileExplorer from './FileExplorer';
+// import TrafficLight from './TrafficLight';
+import NestedCheckBoxes from './NestedCheckBoxes';
+import Kanban from './Practice/Kanban';
+import store from './Practice/Redux/Store';
+import CounterComponent from './Practice/Redux/CounterComponent';
+import FileExplorer from './Practice/FileExplorer/FileExplorer';
+import RedditChat from './Practice/RedditChat/RedditChat';
+import Todo from './Revision1/Todo/Todo';
+import TrafficLight from './Revision1/TraciLight/TrafficLight';
+import ProgressBarClick from './Revision1/ProgressBarClick/ProgressBarClick';
+import Nested from './Revision1/Nested/Nested';
 // import IntervalPactice from './Practice/IntervalPactice';
 
 // const myInfo={
@@ -93,11 +106,20 @@ function App() {
     }
 ];
   return (
+    <Provider store={store}>
     <ThemeProviderValue>
     {/* <div className="App"> */}
     {/* <TicTocToe/> */}
     {/* <NestedCheckBox/> */}
-    <FileExplorer/>
+    {/* <FileExplorer/> */}
+    {/* <TrafficLight/> */}
+    {/* <NestedCheckBoxes/> */}
+    {/* <Kanban/> */}
+    {/* <CounterComponent/> */}
+    {/* <FileExplorer/> */}
+    {/* <RedditChat/> */}
+    {/* <TrafficLight/> */}
+    {/* <ProgressBarClick/> */}
     {/* <MultiSelect/> */}
     {/* <Paginations/> */}
     {/* <SnackLadder/> */}
@@ -122,10 +144,12 @@ function App() {
      {/* <Calculater /> 
       */}
       {/* <Progressbar/> */}
-      {/* <StarRating/> */}
+      {/* <Star/> */}
      {/* <Boxes /> */}
      {/* <TodoList/> */}
     {/* <Debouncing/> */}
+    <Nested/>
+    {/* <AutoComplete/> */}
     {/* <InfiniteScroll/> */}
     {/* <NavBar/> */}
     {/* <Carosual/> */}
@@ -145,7 +169,14 @@ function App() {
     {/* </themeContext.Provider> */}
     {/* </div> */}
     </ThemeProviderValue>
+    </Provider>
   );
 }
 
 export default App;
+
+
+//Router practice
+// methode expose using uspremitve
+// redux practice
+// object practice

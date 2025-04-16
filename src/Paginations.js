@@ -52,6 +52,11 @@ const Paginations = () => {
         <button disabled={page===totalPage-1}  onClick={handleNext}>Next</button>
 
         </div>
+        {/* {
+          Array.from({length:10},(_,index)=>(
+            <span></>
+          ))
+        } */}
         </>
     );
 };

@@ -58,3 +58,43 @@ return ()=>clearInterval(interval)
 };
 
 export default Boxes;
+
+
+const categories = [
+  {
+    id: 1,
+    name: "Electronics",
+    subcategories: [
+      {
+        id: 101,
+        name: "Mobiles",
+        items: [
+          { id: 1001, name: "iPhone 13", price: 999 },
+          { id: 1002, name: "Samsung S23", price: 799 },
+        ],
+      },
+      {
+        id: 102,
+        name: "Laptops",
+        items: [
+          { id: 1003, name: "MacBook Pro", price: 1999 },
+          { id: 1004, name: "Dell XPS 15", price: 1499 },
+        ],
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: "Furniture",
+    subcategories: [
+      {
+        id: 103,
+        name: "Chairs",
+        items: [
+          { id: 1005, name: "Office Chair", price: 199 },
+          { id: 1006, name: "Gaming Chair", price: 299 },
+        ],
+      },
+    ],
+  },
+];
